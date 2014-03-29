@@ -4,9 +4,6 @@
     %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %title JS Comparison Table
     %link{charset: "utf-8", href: "simple.css", media: "all", rel: "stylesheet", title: "simple", type: "text/css"}
-    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", type: "text/javascript"}
-    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js", type: "text/javascript"}
-    %script{src: "js/comparison_table.js", type: "text/javascript"}
 
     // Originally from here: http://blog.codekills.net/archives/89-Equality-in-JavaScript.html
     // 2013-Nov-11. Correcting issue where "[]===[]" was incorrectly marked as true.
@@ -81,6 +78,9 @@
       %div{style: "padding: 2px 20px"}
         %h4 Moral of the story:
         %p Use three equals unless you fully understand the conversions that take place for two-equals.
+    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", type: "text/javascript"}
+    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js", type: "text/javascript"}
+    %script{src: "js/comparison_table.js", type: "text/javascript"}
     %script{charset: "utf-8", type: "text/javascript"}
       /*Strings in backticks (`) are evaluated.*/
 
