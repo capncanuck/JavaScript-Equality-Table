@@ -1,0 +1,99 @@
+!!!!
+%html{lang: "en"}
+  %head
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %title JS Comparison Table
+    %link{charset: "utf-8", href: "simple.css", media: "all", rel: "stylesheet", title: "simple", type: "text/css"}
+    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", type: "text/javascript"}
+    %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js", type: "text/javascript"}
+    %script{src: "js/comparison_table.js", type: "text/javascript"}
+
+    // Originally from here: http://blog.codekills.net/archives/89-Equality-in-JavaScript.html
+    // 2013-Nov-11. Correcting issue where "[]===[]" was incorrectly marked as true.
+    // Converted from this gist:https://gist.github.com/761080
+
+  %body
+    #tabs
+      %ul
+        %li
+          %a{href: "#less-than"} &lt;
+        %li
+          %a{href: "#less-than-equals"} &lt;=
+        %li
+          %a{href: "#two-equals"} ==
+        %li
+          %a{href: "#three-equals"} ===
+        %li
+          %a{href: "#greater-than"} &gt;
+        %li
+          %a{href: "#greater-than-equals"} &gt;=
+        %li
+          %a{href: "#gte-and-lte"} &gt;=&amp;&amp;&lt;=
+        %li
+          %a{href: "#booled-xor"} !!^
+        %li
+          %a{href: "#if-statement"} If()
+      #two-equals
+        %h2
+          ==
+          %smaller (negated: !=)
+        %p.description When using two equals signs for JavaScript equality testing, some funky conversions take place.
+      #three-equals
+        %h2
+          ===
+          %smaller (negated: !==)
+        %p.description
+          When using three equals signs for JavaScript equality testing, everything is
+          = succeed "." do
+            %b as is
+      #if-statement
+        %h2
+          A standard IF statement. If(
+          %i value
+          ) {/*- green -*/} else { /*- red -*/ }
+        %p Note: This row does not match up with any of the rows in the other table.
+      #less-than
+        %h2
+          &lt;
+          %smaller (negated: &gt;=)
+        %p.description When using less than signs for JavaScript testing, some funky conversions take place.
+      #less-than-equals
+        %h2
+          &lt;=
+          %smaller (negated: &gt;)
+        %p.description When using less than or equal to signs for JavaScript testing, some funky conversions take place.
+      #greater-than
+        %h2
+          &gt;
+          %smaller (negated: &lt;=)
+        %p.description When using greater than signs for JavaScript testing, some funky conversions take place.
+      #greater-than-equals
+        %h2
+          &gt;=
+          %smaller (negated: &lt;)
+        %p.description When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
+      #gte-and-lte
+        %h2 &gt;= &amp;&amp; &lt;=
+        %p.description When using greater than or equal and less than or equal to signs for JavaScript testing, some funky conversions take place.
+      #booled-xor
+        %h2 !! ^
+        %p.description When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
+      %div{style: "padding: 2px 20px"}
+        %h4 Moral of the story:
+        %p Use three equals unless you fully understand the conversions that take place for two-equals.
+    %script{charset: "utf-8", type: "text/javascript"}
+      /*Strings in backticks (`) are evaluated.*/
+
+      var values = [true, false, 1, 0, -1, "`'true'`", "`'false'`", "`'1'`", "`'0'`", "`'-1'`","", "`null`", "`undefined`", "`[]`", "`{}`", [[]], [0], [1], "`parseFloat('nan')`","`function(){}`", "`function(a){}`"];
+
+      buildComparisonTable(values, "==").appendTo("#two-equals");
+      buildComparisonTable(values, "===").appendTo("#three-equals");
+      buildComparisonTableForIf(values).appendTo("#if-statement");
+      buildComparisonTable(values, "<").appendTo("#less-than");
+      buildComparisonTable(values, ">").appendTo("#greater-than");
+      buildComparisonTable(values, "<=").appendTo("#less-than-equals");
+      buildComparisonTable(values, ">=").appendTo("#greater-than-equals");
+      buildComparisonTable(values, "<=&&>=").appendTo("#gte-and-lte");
+      buildComparisonTable(values, "!!^").appendTo("#booled-xor");
+
+      $('#tabs').tabs();
