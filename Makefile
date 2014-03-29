@@ -1,8 +1,8 @@
-COFFEE = $(shell which coffee)
+COFFEE = $(shell which coffeebar)
 
 watch:
-	${COFFEE} -w -o ./js -c ./coffee
+	${COFFEE} -wmo js coffee
 
 build:
-	${COFFEE} -o ./js -c ./coffee
+	${COFFEE} -mo js coffee
 	haml index.haml index.html
