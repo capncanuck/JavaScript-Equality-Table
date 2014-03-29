@@ -81,8 +81,8 @@
     %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", type: "text/javascript"}
     %script{charset: "utf-8", src: "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js", type: "text/javascript"}
     %script{src: "js/comparison_table.js", type: "text/javascript"}
-    %script{async: true, charset: "utf-8", type: "text/javascript"}
-      / Strings in backticks (`) are evaluated.
+    :javascript
+      // Strings in backticks (`) are evaluated.
 
       var values = [true, false, 1, 0, -1, "`'true'`", "`'false'`", "`'1'`", "`'0'`", "`'-1'`","", "`null`", "`undefined`", "`[]`", "`{}`", [[]], [0], [1], "`parseFloat('nan')`","`function(){}`", "`function(a){}`"];
 
