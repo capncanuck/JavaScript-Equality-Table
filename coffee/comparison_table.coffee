@@ -146,7 +146,7 @@ supportsCanvas = (->
             evalStr = _ref[0]
             tf = _ref[1]
             td.attr "title", "" + evalStr + " // " + tf
-            td.addClass "green" if tf
+            td.addClass "equal" if tf
 
     $table
 
@@ -167,7 +167,7 @@ supportsCanvas = (->
         )).appendTo($tr)
 
         val = (new Function("if(" + comp.asString + "){return true}else{return false}"))()
-        $td.addClass "green" if val
+        $td.addClass "equal" if val
 
         expression = " if (" + comp.asString + ") { /* " + ((if val then "executes" else "does not execute")) + " */ } "
 

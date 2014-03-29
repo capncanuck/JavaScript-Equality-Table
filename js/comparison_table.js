@@ -216,7 +216,7 @@
         tf = _ref[1];
         td.attr("title", "" + evalStr + " // " + tf);
         if (tf) {
-          td.addClass("green");
+          td.addClass("equal");
         }
       }
     }
@@ -250,7 +250,7 @@
       })).appendTo($tr);
       val = (new Function("if(" + comp.asString + "){return true}else{return false}"))();
       if (val) {
-        $td.addClass("green");
+        $td.addClass("equal");
       }
       expression = " if (" + comp.asString + ") { /* " + (val ? "executes" : "does not execute") + " */ } ";
       $("<td>", {
